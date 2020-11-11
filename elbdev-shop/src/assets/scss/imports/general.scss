@@ -1,0 +1,25 @@
+html, body {
+  background-color: $white;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+
+.wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.page-content {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+  background-color: $white;
+  overflow-x: hidden;
+}

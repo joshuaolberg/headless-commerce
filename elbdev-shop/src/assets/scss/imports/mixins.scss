@@ -1,0 +1,29 @@
+@mixin transition {
+  -webkit-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+@mixin transition-out {
+  -webkit-transition: 0.3s ease-out;
+  -o-transition: 0.3s ease-out;
+  transition: 0.3s ease-out;
+}
+
+@mixin transition-slow {
+  -webkit-transition: 0.8s ease;
+  -o-transition: 0.8s ease;
+  transition: 0.8s ease;
+}
+
+@mixin transition-slow-out {
+  -webkit-transition: 0.8s ease-out;
+  -o-transition: 0.8s ease-out;
+  transition: 0.8s ease-out;
+}
+
+@mixin transition-slide-in {
+  -webkit-transition: 0.8s ease;
+  -o-transition: 0.8s ease;
+  transition: 0.8s ease;
+}
