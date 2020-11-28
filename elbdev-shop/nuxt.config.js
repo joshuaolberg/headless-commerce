@@ -44,10 +44,19 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    'nuxt-shopify'
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
+
+  shopify: {
+    domain: 'elbdev.myshopify.com',
+    storefrontAccessToken: '2015a04f9faf9795be368b343db2e5d5',
+    unoptimized: false,
+  },
+
+  test: {},
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {}

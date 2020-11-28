@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {Product, ProductImage, ProductVariant} from "~/store/products.types";
 
 const baseDomain = 'https://elbdev.myshopify.com';
 const apiVersion = '2020-07';
@@ -17,7 +18,6 @@ export default class ShopifyClient {
 
     axios.post(baseURL, gqlData, config)
       .then(successResponse => {
-        console.log('Success', successResponse);
         successCallback(successResponse);
       })
       .catch(errorResponse => {
@@ -66,12 +66,54 @@ export default class ShopifyClient {
         }
       }
     `;
+
     ShopifyClient.query({query: graphquery}, (responseSuccess: { data: any }) => {
-      // Do something
-      console.log('hello');
+      // Get Productdata and normalize them
+      const products = responseSuccess.data.data.products.edges;
+      const normalizedProducts: Product[] = [];
+
+      products.forEach((element: any) => {
+        // Get the product image info
+        // and prep it for the product object
+        const images: ProductImage[] = [];
+
+        // Normalize each image attached to the product
+        element.node.images.edges.forEach((imageElement: any) => {
+          const normalizedProductImage: ProductImage = {
+            id: imageElement.node.id,
+            src: imageElement.node.originalSrc,
+            altText: imageElement.node.altText,
+          };
+          images.push(normalizedProductImage);
+        });
+
+        // Normalize each variant for the product
+        const variants: ProductVariant[] = [];
+        element.node.variants.edges.forEach((variantElement: any) => {
+          const normalizedProductVariant: ProductVariant = {
+            id: variantElement.node.id,
+            title: variantElement.node.title,
+            price: variantElement.node.priceV2.amount,
+            currencyCode: variantElement.node.priceV2.currencyCode,
+            imageSrc: variantElement.node.image.originalSrc,
+            imageAltText: variantElement.node.image.altText,
+          };
+          variants.push(normalizedProductVariant);
+        });
+
+        const normalizedProduct = {
+          id: element.node.id,
+          description: element.node.description !== '' ? element.node.description : null,
+          title: element.node.title,
+          type: element.node.productType,
+          images,
+          variants,
+        };
+        normalizedProducts[element.node.id] = normalizedProduct;
+      });
+      return successCallback(normalizedProducts);
     }, (responseError: any) => {
-      console.log('You such', responseError);
-      errorCallback(responseError);
+      return errorCallback(responseError);
     });
   }
 }

@@ -5,11 +5,11 @@
 </template>
 
 <script lang="ts">
-import productList from '../components/productList.vue'
+//import productList from '../components/productList';
 
 export default {
   name: "catalogue",
-  components: {productList},
+  //components: {productList},
 
 }
 </script>

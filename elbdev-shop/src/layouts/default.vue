@@ -9,12 +9,12 @@
 </template>
 
 <script lang="ts">
-import Navbar from '../components/shared/navbar.vue';
-import Footer from "../components/shared/footer.vue";
+  import Navbar from '../components/shared/navbar.vue';
+  import Footer from "../components/shared/footer.vue";
 
-export default {
-  components: {Footer, Navbar}
-}
+  export default {
+    components: {Footer, Navbar}
+  }
 </script>
 
 <style lang="scss">

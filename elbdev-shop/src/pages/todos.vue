@@ -13,42 +13,43 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import {mapMutations} from 'vuex'
+  import Vue from 'vue';
+  import {mapGetters, mapMutations} from 'vuex'
 
-export default Vue.extend({
-  mounted() {
-    //this.joke = this.$store.getters.getCurrentJoke;
-    //console.log(this.$store.getters.getCurrentJoke);
+  export default Vue.extend({
+    mounted() {
+      //this.joke = this.$store.getters.getCurrentJoke;
+      //console.log(this.$store.getters.getCurrentJoke);
 
-    // action trigger
-    this.$store.dispatch('setCurrentJoke');
-  },
-  computed: {
-    todos() {
-      return this.$store.state.todos.list
+      // action trigger
+      this.$store.dispatch('jokes/setCurrentJoke');
     },
-    joke() {
-      return this.$store.getters.getCurrentJoke;
+    computed: {
+      todos() {
+        return this.$store.state.todos.list
+      },
+      ...mapGetters({
+        joke: 'jokes/currentJoke',
+        jokes: 'jokes/allJokes'
+      }),
+    },
+    methods: {
+      addJoke() {
+        this.$store.dispatch('jokes/setCurrentJoke');
+      },
+      addTodo(e) {
+        this.$store.commit('todos/addTodo', e.target.value);
+        e.target.value = ''
+      },
+      ...mapMutations({
+        toggle: 'todos/toggleTodo'
+      })
     }
-  },
-  methods: {
-    addJoke() {
-      this.$store.dispatch('setCurrentJoke');
-    },
-    addTodo(e) {
-      this.$store.commit('addTodo', e.target.value)
-      e.target.value = ''
-    },
-    ...mapMutations({
-      toggle: 'toggleTodo'
-    })
-  }
-})
+  })
 </script>
 
 <style>
-.done {
-  text-decoration: line-through;
-}
+  .done {
+    text-decoration: line-through;
+  }
 </style>

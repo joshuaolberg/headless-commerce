@@ -1,35 +1,23 @@
 <template>
   <div class="container">
-    {{ products }}
+    <h4 v-for="product in products">{{ product }}</h4>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import productService from '../services/productService';
+import {mapGetters} from 'vuex';
 
 export default Vue.extend({
-  data() {
-    return {
-      products: []
-    };
-  },
   mounted() {
-    this.getProducts();
+    this.$store.dispatch('products/fetchAllProducts');
   },
-  methods: {
-    async getProducts() {
-      await productService.getProducts().then(successResponse => {
-        this.products = successResponse.data.data.shop.products.edges;
-        console.log(this.products);
-      }).catch(errorResponse => {
-        console.log(errorResponse);
-      });
-    },
-  },
+  computed: {
+    ...mapGetters({
+      products: 'products/allProducts'
+    })
+  }
 })
-
-
 </script>
 
 <style>

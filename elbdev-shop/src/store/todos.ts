@@ -1,6 +1,6 @@
 export const state = () => ({
   list: []
-})
+});
 
 export const mutations = {
   addTodo(state, text) {
@@ -16,9 +16,4 @@ export const mutations = {
   toggleTodo(state, todo) {
     todo.done = !todo.done
   }
-}
-
-export default {
-  state,
-  mutations
-}
+};

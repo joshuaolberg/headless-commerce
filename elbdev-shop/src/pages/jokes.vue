@@ -3,7 +3,7 @@
     {{ joke }}
     <button @click="addJoke">Add</button>
 
-    <h4 v-for="(joke, idx) in jokes" :key="idx">
+    <h4 v-for="(joke, idx) in jokes" :key="idx" :load="log(jokes)">
       <span>{{ idx + 1 }}</span>
       {{ joke }}
     </h4>
@@ -11,19 +11,19 @@
 </template>
 
 <script lang="ts">
-import {mapActions, mapGetters} from 'vuex';
 import Vue from 'vue';
+import {mapActions, mapGetters} from 'vuex';
 
 export default Vue.extend({
   name: "jokes",
   mounted() {
-    this.$store.dispatch('setCurrentJoke');
+    this.$store.dispatch('jokes/setCurrentJoke');
     //this.setCurrentJoke;
   },
   computed: {
     ...mapGetters({
-      joke: 'getCurrentJoke',
-      jokes: 'getAllJokes'
+      joke: 'jokes/currentJoke',
+      jokes: 'jokes/allJokes'
     }),
     //...mapActions(['setCurrentJoke'])
     /* Replaced by mapGetters
@@ -37,8 +37,11 @@ export default Vue.extend({
   },
   methods: {
     addJoke() {
-      this.$store.dispatch('setCurrentJoke');
+      this.$store.dispatch('jokes/setCurrentJoke');
     },
+    log(jokes) {
+      console.log(jokes);
+    }
   }
 });
 </script>
