@@ -1,6 +1,5 @@
 <template>
   <div>
-    <p>Detail Page</p>
     <BlogpostDetail/>
   </div>
 </template>

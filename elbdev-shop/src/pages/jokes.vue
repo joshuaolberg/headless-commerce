@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
     {{ joke }}
     <button @click="addJoke">Add</button>
 
@@ -15,7 +15,6 @@ import Vue from 'vue';
 import {mapActions, mapGetters} from 'vuex';
 
 export default Vue.extend({
-  name: "jokes",
   mounted() {
     this.$store.dispatch('jokes/setCurrentJoke');
     //this.setCurrentJoke;

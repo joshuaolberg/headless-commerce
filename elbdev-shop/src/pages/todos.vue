@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
     <ul>
       <li v-for="todo in todos" :key="todo.text">
         <input :checked="todo.done" @change="toggle(todo)" type="checkbox">

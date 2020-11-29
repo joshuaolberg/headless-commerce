@@ -8,7 +8,6 @@
 //import productList from '../components/productList';
 
 export default {
-  name: "catalogue",
   //components: {productList},
 
 }
