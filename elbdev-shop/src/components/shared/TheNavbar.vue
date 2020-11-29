@@ -4,12 +4,13 @@
     <NuxtLink to="/catalogue">Produkte</NuxtLink>
     <NuxtLink to="/todos">ToDos</NuxtLink>
     <NuxtLink to="/jokes">Jokes</NuxtLink>
+    <NuxtLink to="/blog">Blog</NuxtLink>
   </nav>
 </template>
 
 <script lang="ts">
 export default {
-  name: "Navbar"
+  name: "TheNavbar"
 }
 </script>
 

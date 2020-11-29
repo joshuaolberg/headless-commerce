@@ -44,7 +44,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    'nuxt-shopify'
+    'nuxt-shopify',
+    '@nuxtjs/strapi'
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
@@ -54,6 +55,11 @@ export default {
     domain: 'elbdev.myshopify.com',
     storefrontAccessToken: '2015a04f9faf9795be368b343db2e5d5',
     unoptimized: false,
+  },
+
+  strapi: {
+    entities: ['blog'],
+    url: 'http://localhost:1337',
   },
 
   test: {},

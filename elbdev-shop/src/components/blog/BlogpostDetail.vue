@@ -1,10 +1,10 @@
 <template>
-
+  <p>Hello World</p>
 </template>
 
-<script lang="ts">
+<script>
 export default {
-  name: "Footer"
+  name: "BlogpostDetail"
 }
 </script>
 
