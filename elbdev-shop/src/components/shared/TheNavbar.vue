@@ -2,8 +2,7 @@
   <nav class="navbar">
     <NuxtLink to="/">Home</NuxtLink>
     <NuxtLink to="/catalogue">Produkte</NuxtLink>
-    <NuxtLink to="/todos">ToDos</NuxtLink>
-    <NuxtLink to="/jokes">Jokes</NuxtLink>
+    <!--<NuxtLink to="/todos">ToDos</NuxtLink>-->
     <NuxtLink to="/blog">Blog</NuxtLink>
   </nav>
 </template>

@@ -5,6 +5,7 @@
       <div v-if="blogpost.Hidden === false">
         <h2>{{ blogpost.Headline_de }}</h2>
         <p>{{ blogpost.Teaser_de }}</p>
+        <span>[{{ blogpost.id }}]</span>
         <NuxtLink :to="{name: 'blog-id', params: {id: blogpost.id}}">Mehr lesen</NuxtLink>
       </div>
     </div>
