@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
     <div v-for="product in products">
       {{ product.title }}<br/>
       {{ product.description }} <br/>

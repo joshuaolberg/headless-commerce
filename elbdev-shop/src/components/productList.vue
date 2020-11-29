@@ -16,7 +16,7 @@ import Vue from 'vue';
 import {mapGetters} from 'vuex';
 
 export default Vue.extend({
-  name: "productList",
+  name: "ProductList",
   mounted() {
     this.$store.dispatch('products/setAllProducts');
   },
