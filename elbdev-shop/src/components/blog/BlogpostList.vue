@@ -12,7 +12,7 @@
             <div v-if="blogpost.Hidden === false">
               <h2><span>[{{ blogpost.id }}]</span> {{ blogpost.Headline_de }}</h2>
               <p>{{ blogpost.Teaser_de }}</p>
-              <NuxtLink :to="{name: 'blog-id', params: {id: blogpost.id}}">Mehr lesen</NuxtLink>
+              <NuxtLink :to="localePath({name: 'blog-id', params: {id: blogpost.id}})">Mehr lesen</NuxtLink>
             </div>
           </div>
         </div>

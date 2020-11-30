@@ -45,7 +45,8 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     'nuxt-shopify',
-    '@nuxtjs/strapi'
+    '@nuxtjs/strapi',
+    'nuxt-i18n',
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
@@ -62,7 +63,37 @@ export default {
     url: 'http://localhost:1337',
   },
 
-  test: {},
+  // https://i18n.nuxtjs.org/setup
+  i18n: {
+    locales: [
+      {
+        name: 'Deutsch',
+        code: 'de',
+        iso: 'de-DE',
+        file: 'de-DE.json'
+      },
+      {
+        name: 'English',
+        code: 'en',
+        iso: 'en-US',
+        file: 'en-US.json',
+      }
+    ],
+    langDir: 'lang/',
+    defaultLocale: 'de',
+    /* ????? */
+    vueI18n: {
+      fallbackLocale: 'de',
+      messages: {
+        de: {
+          welcome: 'Willkommen'
+        },
+        en: {
+          welcome: 'Welcome'
+        }
+      }
+    }
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {}

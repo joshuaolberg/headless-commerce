@@ -1,22 +1,16 @@
 <template>
-  <div>
-    <h4 v-for="product in products">{{ product }}</h4>
+  <div class="container">
+    <h1>{{ $t('hello') }}</h1>
+
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import {mapGetters} from 'vuex';
+
 
 export default Vue.extend({
-  mounted() {
-    this.$store.dispatch('products/fetchAllProducts');
-  },
-  computed: {
-    ...mapGetters({
-      products: 'products/allProducts'
-    })
-  }
+
 })
 </script>
 
